@@ -1,4 +1,12 @@
 # IoT
 Dustbin IoT System
 
-I'm working on this right now.
+I'm currently working on this.
+
+<br>
+
+![Screenshot](docs/Screenshot_1.png)
+
+<br>
+
+![Screenshot](docs/Screenshot_2.png)

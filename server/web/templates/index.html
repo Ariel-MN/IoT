@@ -1,14 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     <title>Login</title>
 </head>
 <body>
   <nav class="navbar">
-    <img src="img/planet.svg" width="30" height="30" alt="">
+    <img src="{% static 'img/planet.svg' %}" width="30" height="30" alt="">
     <p><strong>Dustbin IoT System</strong></p>
   </nav>
   <div class="login-box">
@@ -22,7 +23,7 @@
           <input type="password" required>
           <label>Password</label>
         </div>
-        <a href="home.html">
+        <a href="#">
           <span></span>
           <span></span>
           <span></span>

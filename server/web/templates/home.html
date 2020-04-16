@@ -1,15 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     <title>Dashboard</title>
 </head>
 <body>
     <nav class="navbar">
-        <img src="img/planet.svg" width="30" height="30" alt="">
+        <img src="{% static 'img/planet.svg' %}" width="30" height="30" alt="">
         <p><strong>Dustbin IoT System</strong></p>
     </nav>
     <div class="general-container centered">
@@ -33,8 +34,7 @@
                 <input type="number" min="1" max="100000" class="form-control" id="dustbin-number" placeholder="Dustbin Number">
                 </div>
                 <br>
-                <a href="index.html" class="btn btn-outline-logout">Logout</a> <!-- remove -->
-                <!-- <button type="button" class="btn btn-outline-logout">Logout</button> --> <!-- use this -->
+                <button type="button" class="btn btn-outline logout">Logout</button>
             </form>
         </div>
 
@@ -139,7 +139,7 @@
                 </p>
                 </div>
             </div>
-            <button type="button" class="btn btn-outline-logout">Update</button>
+            <button type="button" class="btn btn-outline update">Update</button>
         </div>
     </div>
 </body>

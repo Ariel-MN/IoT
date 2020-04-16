@@ -256,10 +256,10 @@ color: #fff;
 text-align: center;
 }
 .battery.container {
-width: 240px; /* battery */
+width: 240px;
 }
 .battery.container.center {
-margin: 0 auto; /* battery */
+margin: 0 auto;
 margin-top: 40px;
 }
 #batteryBody {
@@ -321,7 +321,7 @@ margin-left: 5px;
 background-color: lightgray;
 border-radius:.25rem;
 }
-.btn-outline-logout{
+.btn-outline{
 margin-left: 35%;
 width: 30%;
 display:inline-block;
@@ -335,21 +335,17 @@ padding:.375rem .75rem;
 font-size:1rem;
 line-height:1.5;
 border-radius:.25rem;
-margin: 0; /* remove when delete login link*/
-margin-left: 35%; /* remove when delete login link*/
-text-decoration: none; /* remove when delete login link*/
 transition:color .20s ease-in-out,background-color .20s ease-in-out,border-color .20s ease-in-out,box-shadow .20s ease-in-out;
 color:#00db9a;
 border-color:#00db9a;
 }
-.btn-outline-logout:hover{
+.btn-outline:hover{
 color:#fff;
 background-color:#00db9a;
 border-color:#00db9a;
 }
 .form-row{
 display:-ms-flexbox;
-/* display:flex; */
 -ms-flex-wrap:wrap;
 flex-wrap:wrap;
 margin-right:-5px;
@@ -403,7 +399,6 @@ border-bottom-color: rgba(0, 0, 0, 0.125);
 border-left-color: rgba(0, 0, 0, 0.125);
 border-radius: .25rem;
 word-wrap: break-word;
-/* max-width: 18rem; */
 margin-bottom: 1rem !important;
 border-color: #00db9a !important;
 }
@@ -465,7 +460,6 @@ background-color: rgb(255, 255, 255, .1);
 .gauge.center {
 float: none;
 margin: 0 auto;
-/* margin-top: 50px; */
 }
 .gauge.big {
 font-size: 240px;

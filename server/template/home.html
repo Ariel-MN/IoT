@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    <nav class="navbar">
+        <img src="img/planet.svg" width="30" height="30" alt="">
+        <p><strong>Dustbin IoT System</strong></p>
+    </nav>
+    <div class="general-container centered">
+        <div class="dashboard-box one">
+            <h1>Menu</h1>
+            <br>
+            <form>
+                <div class="form-group">
+                <input type="number" min="1" max="8000" class="form-control" id="service-order" placeholder="Service Order">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                    <select id="employee-id" class="form-control">
+                        <option selected>Employee ID</option>
+                        <option>...</option>
+                    </select>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                <input type="number" min="1" max="100000" class="form-control" id="dustbin-number" placeholder="Dustbin Number">
+                </div>
+                <br>
+                <a href="index.html" class="btn btn-outline-logout">Logout</a> <!-- remove -->
+                <!-- <button type="button" class="btn btn-outline-logout">Logout</button> --> <!-- use this -->
+            </form>
+        </div>
+
+        <div class="dashboard-box two">
+            <h1>Sensor</h1>
+            <br>
+            <div class="gauge-container">
+                <!-- Class names for change the size: big, small
+                    Remove center for align to the left
+                    Change p number to the same of the number indicator -->
+                <div class="gauge p55 big center">
+                    <span>55%</span> <!-- Visible number indicator -->
+                    <p>Capacity</p>
+                    <div class="slice">
+                        <div class="bar"></div>
+                        <div class="fill"></div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="battery-container" style="margin-top: 4rem;">
+                <div class="battery container center">
+                    <div id="batteryBody">
+                        <div id="percentage">
+                            <span>20%</span> <!-- Visible number indicator -->
+                        </div>
+                        <!--Battery background true or false -->
+                        <div class="trasparent false"></div>
+                        <!-- Class names for change the color: full, medium, low
+                            Style="width" is the battery level visual indicator -->
+                        <div class="indicator low" style="width:20%"></div>
+                    </div>
+                    <div class="batteryEnd">
+                        <div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-box tree">
+            <h1>Information</h1>
+            <br>
+            <div class="form-group">
+                <input type="text" min="1" max="100000" class="form-control" id="dustbin-number" placeholder="Dustbin Number" readonly>
+            </div>
+            <div class="form-group" style="margin-top: 0.7rem;">
+                <input type="text" min="1" max="100000" class="form-control" id="dustbin-number" placeholder="Ip Address" readonly>
+            </div>
+            <br>
+            <div class="card" style="margin-top: 5.2rem;">
+                <div class="card-header">Service Order</div>
+                <div class="card-body text-info">
+                <h5 class="card-title">
+                    # <span> 0 </span>
+                </h5>
+                <p class="card-text">
+                    <ul style="list-style-type:none;">
+                        <li>Harvest Date: </li>
+                        <li>Employee Id: </li>
+                        <li>Dustbins: </li>
+                    </ul> 
+                </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-box four">
+            <h1>Update</h1>
+            <br>
+            <form>
+                <div class="form-group">
+                <input type="number" min="1" max="8000" class="form-control" id="service-order" placeholder="Service Order">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                    <select id="employee-id" class="form-control">
+                        <option selected>Employee ID</option>
+                        <option>...</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top: 0.7rem;">
+                <input type="text" class="form-control" id="dustbin-number" placeholder="Dustbin Numbers">
+                </div>
+                <div class="date-select" style="margin-top: 0.7rem;">
+                    <input type="date"> 
+                </div>
+            </form>
+            <div class="card" style="margin-top: 2rem;">
+                <div class="card-header">Preview</div>
+                <div class="card-body text-info">
+                <h5 class="card-title">
+                    # <span> 0 </span>
+                </h5>
+                <p class="card-text">
+                    <ul style="list-style-type:none;">
+                        <li>Harvest Date: </li>
+                        <li>Employee Id: </li>
+                        <li>Dustbins: </li>
+                    </ul> 
+                </p>
+                </div>
+            </div>
+            <button type="button" class="btn btn-outline-logout">Update</button>
+        </div>
+    </div>
+</body>
+</html>

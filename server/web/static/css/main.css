@@ -1,3 +1,12 @@
+/* TO TEST */
+.noselect {
+-webkit-touch-callout: none; /* iOS Safari */
+-webkit-user-select: none; /* Safari */
+-khtml-user-select: none; /* Konqueror HTML */
+-moz-user-select: none; /* Old versions of Firefox */
+-ms-user-select: none; /* Internet Explorer/Edge */
+user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+}
 
 /* GENERAL */
 
@@ -12,6 +21,16 @@ background: linear-gradient(rgb(217, 255, 0), green);
 background-repeat: no-repeat;
 background-attachment: fixed;
 overflow-x: hidden;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+color: lightgray;
+opacity: 1; /* Firefox */
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+color: lightgray;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+color: lightgray;
 }
 .navbar {
 position: fixed;
@@ -36,6 +55,7 @@ color: white;
 text-decoration: none;
 background-color: transparent;
 margin-left: 10px;
+cursor: default;
 }
 .navbar img {
 margin-top: -5px;
@@ -254,6 +274,7 @@ margin: 0 0 30px;
 padding: 0;
 color: #fff;
 text-align: center;
+cursor: default;
 }
 .battery.container {
 width: 240px;
@@ -373,15 +394,25 @@ border: 1px solid #00db9a;
 border-radius: .25rem;
 transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-
+.form-control.readonly{
+    cursor: default;
+}
+.form-control.selector{
+    background-color: rgba(79, 129, 40, 0.4);
+    cursor: pointer;
+}
+.form-control.selector option {
+    color: green;
+}
 .date-select input {
 color: #fff;
 background-color: transparent;
 border:1px solid transparent;
 border-color: #00db9a;
 border-radius:.25rem;
+min-height: 1.3rem;
+cursor: pointer;
 }
-
 .card {
 position: relative;
 display: -ms-flexbox;
@@ -407,6 +438,7 @@ color: #00db9a !important;
 padding: .75rem 1.25rem;
 background-color: rgba(0,0,0,.03);
 border-bottom: 1px solid rgba(0,0,0,.125);
+cursor: default;
 }
 .card-body {
 -ms-flex: 1 1 auto;
@@ -494,6 +526,7 @@ color: lightgray;
 display: block;
 text-align: center;
 white-space: nowrap;
+cursor: default;
 }
 .gauge:after {
 position: absolute;

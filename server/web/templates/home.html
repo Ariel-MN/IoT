@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
     <title>Dashboard</title>
 </head>
 <body>
@@ -17,24 +18,26 @@
         <div class="dashboard-box one">
             <h1>Menu</h1>
             <br>
-            <form>
+            <form method="POST">
                 <div class="form-group">
-                <input type="number" min="1" max="8000" class="form-control" id="service-order" placeholder="Service Order">
+                <input type="number" min="1" max="8000" class="form-control find_order" id="service-order" name="find_order" placeholder="Service Order" onChange="Rules(this.form)">
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                    <select id="employee-id" class="form-control">
+                    <select id="employee-id" class="form-control selector">
                         <option selected>Employee ID</option>
-                        <option>...</option>
+                        {% for employee in employees %}
+                        <option>{{employee.id}}</option>
+                        {% endfor %}
                     </select>
                     </div>
                 </div>
                 <br>
                 <div class="form-group">
-                <input type="number" min="1" max="100000" class="form-control" id="dustbin-number" placeholder="Dustbin Number">
+                <input type="number" min="1" max="100000" class="form-control find_dustbin" id="dustbin-number" name="find_dustbin" placeholder="Dustbin Number" onChange="Rules(this.form)">
                 </div>
                 <br>
-                <button type="button" class="btn btn-outline logout">Logout</button>
+                <button type="button" class="btn btn-outline logout noselect">Logout</button>
             </form>
         </div>
 
@@ -45,8 +48,8 @@
                 <!-- Class names for change the size: big, small
                     Remove center for align to the left
                     Change p number to the same of the number indicator -->
-                <div class="gauge p55 big center">
-                    <span>55%</span> <!-- Visible number indicator -->
+                <div class="gauge p{{sensor.capacity}} big center">
+                    <span>{{sensor.capacity}}%</span> <!-- Visible number indicator -->
                     <p>Capacity</p>
                     <div class="slice">
                         <div class="bar"></div>
@@ -59,13 +62,13 @@
                 <div class="battery container center">
                     <div id="batteryBody">
                         <div id="percentage">
-                            <span>20%</span> <!-- Visible number indicator -->
+                            <span>{{sensor.battery}}%</span> <!-- Visible number indicator -->
                         </div>
                         <!--Battery background true or false -->
                         <div class="trasparent false"></div>
                         <!-- Class names for change the color: full, medium, low
                             Style="width" is the battery level visual indicator -->
-                        <div class="indicator low" style="width:20%"></div>
+                        <div class="indicator {{level}}" style="width:{{sensor.battery}}%"></div>
                     </div>
                     <div class="batteryEnd">
                         <div>
@@ -79,23 +82,23 @@
             <h1>Information</h1>
             <br>
             <div class="form-group">
-                <input type="text" min="1" max="100000" class="form-control" id="dustbin-number" placeholder="Dustbin Number" readonly>
+                <input type="text" min="1" max="100000" class="form-control readonly" id="sensor-number" placeholder="Dustbin Number" value="{{sensor.number}}" readonly>
             </div>
             <div class="form-group" style="margin-top: 0.7rem;">
-                <input type="text" min="1" max="100000" class="form-control" id="dustbin-number" placeholder="Ip Address" readonly>
+                <input type="text" min="1" max="100000" class="form-control readonly" id="sensor-ip" placeholder="Ip Address" value="{{sensor.ip}}" readonly>
             </div>
             <br>
-            <div class="card" style="margin-top: 5.2rem;">
+            <div class="card" style="margin-top: 6rem;">
                 <div class="card-header">Service Order</div>
                 <div class="card-body text-info">
                 <h5 class="card-title">
-                    # <span> 0 </span>
+                    # <span> {{order.number}} </span>
                 </h5>
                 <p class="card-text">
                     <ul style="list-style-type:none;">
-                        <li>Harvest Date: </li>
-                        <li>Employee Id: </li>
-                        <li>Dustbins: </li>
+                        <li>Harvest Date: {{order.date}}</li>
+                        <li>Employee Id: {{order.employee_id}}</li>
+                        <li>Dustbins: {{order.dustbins}}</li>
                     </ul> 
                 </p>
                 </div>
@@ -105,41 +108,43 @@
         <div class="dashboard-box four">
             <h1>Update</h1>
             <br>
-            <form>
+            <form method="POST">
                 <div class="form-group">
-                <input type="number" min="1" max="8000" class="form-control" id="service-order" placeholder="Service Order">
+                <input type="number" min="1" max="8000" class="form-control" id="service-order" name="number_upd" placeholder="Service Order" onChange="Preview(this.form)">
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                    <select id="employee-id" class="form-control">
+                    <select id="employee-id" class="form-control selector" name="employee_upd" onChange="Preview(this.form)">
                         <option selected>Employee ID</option>
-                        <option>...</option>
+                        {% for employee in employees %}
+                        <option>{{employee.id}}</option>
+                        {% endfor %}
                     </select>
                     </div>
                 </div>
                 <div class="form-group" style="margin-top: 0.7rem;">
-                <input type="text" class="form-control" id="dustbin-number" placeholder="Dustbin Numbers">
+                <input type="text" class="form-control" id="dustbin-number" name="dustbins_upd" placeholder="Dustbin Numbers" onChange="Preview(this.form)">
                 </div>
                 <div class="date-select" style="margin-top: 0.7rem;">
-                    <input type="date"> 
+                    <input type="date" name="date_upd" data-date-format="DD MMMM YYYY" onChange="Preview(this.form)"> 
                 </div>
             </form>
             <div class="card" style="margin-top: 2rem;">
                 <div class="card-header">Preview</div>
                 <div class="card-body text-info">
                 <h5 class="card-title">
-                    # <span> 0 </span>
+                    <p id="number-upd">#</p>
                 </h5>
                 <p class="card-text">
                     <ul style="list-style-type:none;">
-                        <li>Harvest Date: </li>
-                        <li>Employee Id: </li>
-                        <li>Dustbins: </li>
+                        <li id="date-upd">Harvest Date:</li>
+                        <li id="employee-upd">Employee Id:</li>
+                        <li id="dustbins-upd">Dustbins:</li>
                     </ul> 
                 </p>
                 </div>
             </div>
-            <button type="button" class="btn btn-outline update">Update</button>
+            <button type="submit" class="btn btn-outline update noselect">Update</button>
         </div>
     </div>
 </body>

@@ -1,40 +1,28 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
-    <title>Dashboard</title>
-</head>
-<body>
-    <nav class="navbar">
-        <img src="{% static 'img/planet.svg' %}" width="30" height="30" alt="">
-        <p><strong>Dustbin IoT System</strong></p>
-    </nav>
+{% extends 'base.html' %}
+
+{% block content %}
     <div class="general-container centered">
         <div class="dashboard-box one">
             <h1>Menu</h1>
             <br>
-            <form method="POST">
+            <form method="POST" action="info">
+                {% csrf_token %}
                 <div class="form-group">
-                <input type="number" min="1" max="8000" class="form-control find_order" id="service-order" name="find_order" placeholder="Service Order" onChange="Rules(this.form)">
+                <input type="number" min="1" max="8000" class="form-control find_order" id="service-order" name="find_order" placeholder="Service Order" onChange="Rules(this.form), this.form.submit()">
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                    <select id="employee-id" class="form-control selector">
+                    <select id="employee-id" class="form-control selector" name="find_id" onChange="this.form.submit()">
                         <option selected>Employee ID</option>
                         {% for employee in employees %}
-                        <option>{{employee.id}}</option>
+                        <option>{{employee.employee_id}}</option>
                         {% endfor %}
                     </select>
                     </div>
                 </div>
                 <br>
                 <div class="form-group">
-                <input type="number" min="1" max="100000" class="form-control find_dustbin" id="dustbin-number" name="find_dustbin" placeholder="Dustbin Number" onChange="Rules(this.form)">
+                <input type="number" min="1" max="100000" class="form-control find_dustbin" id="dustbin-number" name="find_dustbin" placeholder="Dustbin Number" onChange="Rules(this.form), this.form.submit()">
                 </div>
                 <br>
                 <button type="button" class="btn btn-outline logout noselect">Logout</button>
@@ -105,7 +93,7 @@
             </div>
         </div>
 
-        <div class="dashboard-box four">
+<!--         <div class="dashboard-box four">
             <h1>Update</h1>
             <br>
             <form method="POST">
@@ -126,7 +114,7 @@
                 <input type="text" class="form-control" id="dustbin-number" name="dustbins_upd" placeholder="Dustbin Numbers" onChange="Preview(this.form)">
                 </div>
                 <div class="date-select" style="margin-top: 0.7rem;">
-                    <input type="date" name="date_upd" data-date-format="DD MMMM YYYY" onChange="Preview(this.form)"> 
+                    <input type="date" name="date_upd" onChange="Preview(this.form)"> 
                 </div>
             </form>
             <div class="card" style="margin-top: 2rem;">
@@ -145,7 +133,7 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-outline update noselect">Update</button>
-        </div>
+        </div> -->
+    
     </div>
-</body>
-</html>
+{% endblock %}

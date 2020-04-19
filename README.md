@@ -1,7 +1,8 @@
 # IoT
 Dustbin IoT System
 
-I'm currently working on this.
+- Django Web App
+- PostgreSQL as DB
 
 <br>
 

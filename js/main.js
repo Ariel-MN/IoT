@@ -1,6 +1,7 @@
 function Preview(form) {
+    var dustbins = form.dustbins_upd.value;
+    if (dustbins != "") {dustbins= '('+dustbins+')'} else {dustbins=""};
     if (form.employee_upd.value != "Employee ID") {var employee = form.employee_upd.value} else {employee=""};
-    if (form.dustbins_upd.value != "") {dustbins= '('+dustbins+')'} else {dustbins=""};
     if (form.number_upd.value > 8000) {form.number_upd.value=8000};
     var number = form.number_upd.value;
     var date = form.date_upd.value;
@@ -10,8 +11,3 @@ function Preview(form) {
     document.getElementById("dustbins-upd").innerHTML = 'Dustbins: ' + dustbins;
     document.getElementById("date-upd").innerHTML = 'Harvest Date: ' + date;
 }
-
-/* function Rules(form) {
-    if (form.find_order.value > 8000) {form.find_order.value=8000};
-    if (form.find_dustbin.value > 100000) {form.find_dustbin.value=100000};
-} */

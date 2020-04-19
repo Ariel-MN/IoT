@@ -15,6 +15,7 @@
         <p><strong>Dustbin IoT System</strong></p>
     </nav>
     <div class="general-container centered">
+        
         <div class="dashboard-box one">
             <h1>Menu</h1>
             <br>
@@ -26,9 +27,8 @@
                     <div class="form-group col-md-4">
                     <select id="employee-id" class="form-control selector" name="find_id" onChange="this.form.submit()">
                         <option selected>Employee ID</option>
-                        {% for employee in employees %}
-                        <option>{{employee.employee_id}}</option>
-                        {% endfor %}
+                        <option>101</option>
+                        <option>102</option>
                     </select>
                     </div>
                 </div>
@@ -62,13 +62,13 @@
                 <div class="battery container center">
                     <div id="batteryBody">
                         <div id="percentage">
-                            <span>80%</span> <!-- Visible number indicator -->
+                            <span>79%</span> <!-- Visible number indicator -->
                         </div>
                         <!--Battery background true or false -->
                         <div class="trasparent false"></div>
                         <!-- Class names for change the color: full, medium, low
                             Style="width" is the battery level visual indicator -->
-                        <div class="indicator full" style="width:80%"></div>
+                        <div class="indicator medium" style="width:79%"></div>
                     </div>
                     <div class="batteryEnd">
                         <div>

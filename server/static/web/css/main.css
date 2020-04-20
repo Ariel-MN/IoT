@@ -79,7 +79,7 @@ border-radius: 10px;
 .login-box h2 {
 margin: 0 0 30px;
 padding: 0;
-color: #fff;
+color: white;
 text-align: center;
 }
 .login-box .user-box {
@@ -89,10 +89,10 @@ position: relative;
 width: 100%;
 padding: 10px 0;
 font-size: 16px;
-color: #fff;
+color: white;
 margin-bottom: 30px;
 border: none;
-border-bottom: 1px solid #fff;
+border-bottom: 1px solid white;
 outline: none;
 background: transparent;
 }
@@ -102,7 +102,7 @@ top:0;
 left: 0;
 padding: 10px 0;
 font-size: 16px;
-color: #fff;
+color: white;
 pointer-events: none;
 transition: .5s;
 }
@@ -110,14 +110,14 @@ transition: .5s;
 .login-box .user-box input:valid ~ label {
 top: -20px;
 left: 0;
-color: #00db9a;
+color: turquoise;
 font-size: 12px;
 }
 .login-box form a {
 position: relative;
 display: inline-block;
 padding: 10px 20px;
-color: #00db9a;
+color: turquoise;
 font-size: 16px;
 text-decoration: none;
 text-transform: uppercase;
@@ -128,9 +128,9 @@ letter-spacing: 4px
 }
 .login-box a:hover {
 background: rgb(3, 233, 244,.3);
-color: #fff;
+color: white;
 border-radius: 5px;
-box-shadow: 0 0 10px #03e9f4;
+box-shadow: 0 0 10px turquoise;
 }
 .login-box a span {
 position: absolute;
@@ -141,7 +141,7 @@ top: 0;
 left: -100%;
 width: 100%;
 height: 2px;
-background: linear-gradient(90deg, transparent, #00db9a);
+background: linear-gradient(90deg, transparent, turquoise);
 animation: btn-anim1 1s linear infinite;
 }
 @keyframes btn-anim1 {
@@ -157,7 +157,7 @@ top: -100%;
 right: 0;
 width: 2px;
 height: 100%;
-background: linear-gradient(180deg, transparent, #00db9a);
+background: linear-gradient(180deg, transparent, turquoise);
 animation: btn-anim2 1s linear infinite;
 animation-delay: .25s
 }
@@ -174,7 +174,7 @@ bottom: 0;
 right: -100%;
 width: 100%;
 height: 2px;
-background: linear-gradient(270deg, transparent, #00db9a);
+background: linear-gradient(270deg, transparent, turquoise);
 animation: btn-anim3 1s linear infinite;
 animation-delay: .5s
 }
@@ -191,7 +191,7 @@ bottom: -100%;
 left: 0;
 width: 2px;
 height: 100%;
-background: linear-gradient(360deg, transparent, #00db9a);
+background: linear-gradient(360deg, transparent, turquoise);
 animation: btn-anim4 1s linear infinite;
 animation-delay: .75s
 }
@@ -268,7 +268,7 @@ border-radius: 10px;
 .dashboard-box h1 {
 margin: 0 0 30px;
 padding: 0;
-color: #fff;
+color: white;
 text-align: center;
 cursor: default;
 }
@@ -289,10 +289,10 @@ border-radius:.25rem;
 .battery:hover span {
 cursor: default;
 font-size: 1.5em;
-color: #00db9a;
+color: turquoise;
 }
 #percentage {
-color: #fff;
+color: white;
 position: relative;
 float: left;
 font-size: 40px;
@@ -353,13 +353,13 @@ font-size:1rem;
 line-height:1.5;
 border-radius:.25rem;
 transition:color .20s ease-in-out,background-color .20s ease-in-out,border-color .20s ease-in-out,box-shadow .20s ease-in-out;
-color:#00db9a;
-border-color:#00db9a;
+color:turquoise;
+border-color:turquoise;
 }
 .btn-outline:hover{
-color:#fff;
-background-color:#00db9a;
-border-color:#00db9a;
+color:white;
+background-color:turquoise;
+border-color:turquoise;
 }
 .form-row{
 display:-ms-flexbox;
@@ -383,10 +383,10 @@ padding: .375rem .75rem;
 font-size: 1rem;
 font-weight: 400;
 line-height: 1.5;
-color: #fff;
+color: white;
 background-color: transparent;
 background-clip: padding-box;
-border: 1px solid #00db9a;
+border: 1px solid turquoise;
 border-radius: .25rem;
 transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
@@ -401,10 +401,10 @@ transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     color: green;
 }
 .date-select input {
-color: #fff;
+color: white;
 background-color: transparent;
 border:1px solid transparent;
-border-color: #00db9a;
+border-color: turquoise;
 border-radius:.25rem;
 min-height: 1.3rem;
 cursor: pointer;
@@ -427,10 +427,10 @@ border-left-color: rgba(0, 0, 0, 0.125);
 border-radius: .25rem;
 word-wrap: break-word;
 margin-bottom: 1rem !important;
-border-color: #00db9a !important;
+border-color: turquoise !important;
 }
 .card-header {
-color: #00db9a !important;
+color: turquoise !important;
 padding: .75rem 1.25rem;
 background-color: rgba(0,0,0,.03);
 border-bottom: 1px solid rgba(0,0,0,.125);
@@ -454,7 +454,7 @@ font-weight: 500;
 line-height: 1.2;
 }
 .text-info {
-color: #fff !important;
+color: white !important;
 }
 .card-text:last-child {
 margin-bottom: 0;
@@ -465,7 +465,7 @@ clip: rect(auto, auto, auto, auto);
 .gauge .bar, .gauge.p51 .fill, .gauge.p52 .fill, .gauge.p53 .fill, .gauge.p54 .fill, .gauge.p55 .fill, .gauge.p56 .fill, .gauge.p57 .fill, .gauge.p58 .fill, .gauge.p59 .fill, .gauge.p60 .fill, .gauge.p61 .fill, .gauge.p62 .fill, .gauge.p63 .fill, .gauge.p64 .fill, .gauge.p65 .fill, .gauge.p66 .fill, .gauge.p67 .fill, .gauge.p68 .fill, .gauge.p69 .fill, .gauge.p70 .fill, .gauge.p71 .fill, .gauge.p72 .fill, .gauge.p73 .fill, .gauge.p74 .fill, .gauge.p75 .fill, .gauge.p76 .fill, .gauge.p77 .fill, .gauge.p78 .fill, .gauge.p79 .fill, .gauge.p80 .fill, .gauge.p81 .fill, .gauge.p82 .fill, .gauge.p83 .fill, .gauge.p84 .fill, .gauge.p85 .fill, .gauge.p86 .fill, .gauge.p87 .fill, .gauge.p88 .fill, .gauge.p89 .fill, .gauge.p90 .fill, .gauge.p91 .fill, .gauge.p92 .fill, .gauge.p93 .fill, .gauge.p94 .fill, .gauge.p95 .fill, .gauge.p96 .fill, .gauge.p97 .fill, .gauge.p98 .fill, .gauge.p99 .fill, .gauge.p100 .fill {
 position: absolute;
 border: 0.08em solid;
-border-color: #00db9a;
+border-color: turquoise;
 width: 0.84em;
 height: 0.84em;
 clip: rect(0em, 0.5em, 1em, 0em);
@@ -504,7 +504,7 @@ top: 0;
 width: 5em;
 line-height: 5em;
 font-size: 0.2em;
-color: #fff;
+color: white;
 display: block;
 text-align: center;
 white-space: nowrap;
@@ -546,7 +546,7 @@ cursor: default;
 width: 3.33em;
 line-height: 3.33em;
 font-size: 0.3em;
-color: #00db9a;
+color: turquoise;
 }
 .gauge.p1 .bar {
 transform: rotate(3.6deg);

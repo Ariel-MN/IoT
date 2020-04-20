@@ -33,9 +33,9 @@ ALLOWED_HOSTS = ['127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.auth',
     'web.apps.WebConfig',
     'django.contrib.admin',
-    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -57,7 +57,7 @@ ROOT_URLCONF = 'main.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['web/templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'templates', 'web')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,8 +126,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    "web/static",
+    os.path.join(BASE_DIR, 'static', 'admin'),
+    os.path.join(BASE_DIR, 'static', 'web'),
 ]
+
+# Will redirect to index after a logout from admin/
+LOGOUT_REDIRECT_URL = "/"
 
 # Managing media
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

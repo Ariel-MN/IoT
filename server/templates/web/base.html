@@ -14,6 +14,9 @@
   <nav class="navbar">
     <img src="{% static 'img/planet.svg' %}" width="30" height="30" alt="">
     <p><strong>Dustbin IoT System</strong></p>
+    {% if user.is_authenticated %}
+      <p id="welcome">Welcome, {{user.first_name}}.</p>
+    {% endif %}
   </nav>
 
   {% block content %}

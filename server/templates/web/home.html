@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+    {% if user.is_authenticated %}
     <div class="general-container centered">
         <div class="dashboard-box one">
             <h1>Menu</h1>
@@ -25,7 +27,9 @@
                 <input type="number" min="1" max="100000" class="form-control find_dustbin" id="dustbin-number" name="find_dustbin" placeholder="Dustbin Number" onChange="Rules(this.form), this.form.submit()">
                 </div>
                 <br>
-                <button type="button" class="btn btn-outline logout noselect">Logout</button>
+            </form>
+            <form action="logout">
+                <button type="submit" class="btn btn-outline logout">Logout</button>
             </form>
         </div>
 
@@ -93,47 +97,32 @@
             </div>
         </div>
 
-<!--         <div class="dashboard-box four">
-            <h1>Update</h1>
-            <br>
-            <form method="POST">
-                <div class="form-group">
-                <input type="number" min="1" max="8000" class="form-control" id="service-order" name="number_upd" placeholder="Service Order" onChange="Preview(this.form)">
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                    <select id="employee-id" class="form-control selector" name="employee_upd" onChange="Preview(this.form)">
-                        <option selected>Employee ID</option>
-                        {% for employee in employees %}
-                        <option>{{employee.id}}</option>
-                        {% endfor %}
-                    </select>
-                    </div>
-                </div>
-                <div class="form-group" style="margin-top: 0.7rem;">
-                <input type="text" class="form-control" id="dustbin-number" name="dustbins_upd" placeholder="Dustbin Numbers" onChange="Preview(this.form)">
-                </div>
-                <div class="date-select" style="margin-top: 0.7rem;">
-                    <input type="date" name="date_upd" onChange="Preview(this.form)"> 
-                </div>
-            </form>
-            <div class="card" style="margin-top: 2rem;">
-                <div class="card-header">Preview</div>
+        {% if request.user.is_superuser %}
+        <div class="dashboard-box four">
+            <h1>Admin</h1>
+            <div class="card" style="margin-top: 3rem;">
+                <div class="card-header">Information</div>
                 <div class="card-body text-info">
-                <h5 class="card-title">
-                    <p id="number-upd">#</p>
-                </h5>
                 <p class="card-text">
                     <ul style="list-style-type:none;">
-                        <li id="date-upd">Harvest Date:</li>
-                        <li id="employee-upd">Employee Id:</li>
-                        <li id="dustbins-upd">Dustbins:</li>
+                        <li>Access the admin panel</li>
+                        <li>for remove, add or modify:</li>
+                        <li>users, employees, orders and dustbins.</li>
                     </ul> 
                 </p>
                 </div>
             </div>
-            <button type="submit" class="btn btn-outline update noselect">Update</button>
-        </div> -->
-    
+            <button type="button" class="btn btn-outline update" onclick="location.href='/admin/'">Update</button>
+        </div>
+        {% endif %}
     </div>
+
+    {% else %}
+    <div class="general-container centered">
+        <div class="dashboard-box one" style="height:fit-content">
+            <h3 style="color:white">Please, <a href="/" style="color:turquoise">authenticate</a> your self.</h3>
+        </div>
+    </div>
+    {% endif %}
+
 {% endblock %}

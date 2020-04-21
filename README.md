@@ -1,14 +1,11 @@
 # IoT
-Dustbin IoT System
+Dustbin IoT Database Filler
 
-- Django Web App
-- PostgreSQL as DB
-- Credentials in docs
+- Data Format: json
+- File Format: plain text
+- Requeriments: python, psycopg2
+- In filler.py find 'con.autocommit' and set it equal to True
+- Shell command for write: python filler.py data.txt
 
-<br>
-
-![Screenshot](docs/Screenshot_1.png)
-
-<br>
-
-![Screenshot](docs/Screenshot_2.png)
+The command for launch the db filler composition is:
+[ interpreter ] [ script file ] [ text file ]

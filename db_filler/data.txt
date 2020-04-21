@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "capacity": 40,
+    "battery": 50,
+    "ip": "192.168.1.1",
+    "location": "Central Park Avenue - NY"
+  },
+  {
+    "id": 2,
+    "capacity": 50,
+    "battery": 60,
+    "ip": "192.168.1.2",
+    "location": "Central Park Avenue - NY"
+  },
+  {
+    "id": null,
+    "capacity": 60,
+    "battery": 70,
+    "ip": "192.168.1.3",
+    "location": "Central Park Avenue - NY"
+  },
+  {
+    "id": null,
+    "capacity": 70,
+    "battery": 80,
+    "ip": "192.168.1.4",
+    "location": "Central Park Avenue - NY"
+  }
+]

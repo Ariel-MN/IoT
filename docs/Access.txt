@@ -1,0 +1,13 @@
+[WEB APP ACCESS]
+
+SUPER USER
+user: arielmontes
+pwd: ITs-2020
+
+EMPLOYEE 1
+user: alexfreeman
+pwd: gNQZKEsZ
+
+EMPOYEE 2
+user: briandale
+pwd: OXZYNucf

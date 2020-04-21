@@ -7,6 +7,7 @@
         <div class="dashboard-box one">
             <h1>Menu</h1>
             <br>
+            {% if user.is_superuser %}
             <form method="POST" action="info">
                 {% csrf_token %}
                 <div class="form-group">
@@ -28,6 +29,26 @@
                 </div>
                 <br>
             </form>
+            {% else %}
+            <form method="POST" action="inf">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                    <select id="employee-id" class="form-control selector" name="find_orders" onChange="this.form.submit()">
+                        <option selected>User Orders</option>
+                        {% for order in orders %}
+                        <option>{{order.id}}# ( {{order.date}} )</option>
+                        {% endfor %}
+                    </select>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                <input type="number" min="1" max="100000" class="form-control find_dustbin" id="dustbin-number" name="find_dustbin" placeholder="Dustbin Number" onChange="Rules(this.form), this.form.submit()">
+                </div>
+                <br>
+            </form>
+            {% endif %}
             <form action="logout">
                 <button type="submit" class="btn btn-outline logout">Logout</button>
             </form>
@@ -37,11 +58,8 @@
             <h1>Sensor</h1>
             <br>
             <div class="gauge-container">
-                <!-- Class names for change the size: big, small
-                    Remove center for align to the left
-                    Change p number to the same of the number indicator -->
                 <div class="gauge p{{sensor.capacity}} big center">
-                    <span>{{sensor.capacity}}%</span> <!-- Visible number indicator -->
+                    <span>{{sensor.capacity}}%</span>
                     <p>Capacity</p>
                     <div class="slice">
                         <div class="bar"></div>
@@ -54,12 +72,9 @@
                 <div class="battery container center">
                     <div id="batteryBody">
                         <div id="percentage">
-                            <span>{{sensor.battery}}%</span> <!-- Visible number indicator -->
+                            <span>{{sensor.battery}}%</span>
                         </div>
-                        <!--Battery background true or false -->
                         <div class="trasparent false"></div>
-                        <!-- Class names for change the color: full, medium, low
-                            Style="width" is the battery level visual indicator -->
                         <div class="indicator {{level}}" style="width:{{sensor.battery}}%"></div>
                     </div>
                     <div class="batteryEnd">
@@ -74,7 +89,7 @@
             <h1>Information</h1>
             <br>
             <div class="form-group">
-                <input type="text" min="1" max="100000" class="form-control readonly" id="sensor-number" placeholder="Dustbin Number" value="{{sensor.number}}" readonly>
+                <input type="text" min="1" max="100000" class="form-control readonly" id="sensor-number" placeholder="Dustbin Number" value="{{sensor.id}}" readonly>
             </div>
             <div class="form-group" style="margin-top: 0.7rem;">
                 <input type="text" min="1" max="100000" class="form-control readonly" id="sensor-ip" placeholder="Ip Address" value="{{sensor.ip}}" readonly>
@@ -84,7 +99,7 @@
                 <div class="card-header">Service Order</div>
                 <div class="card-body text-info">
                 <h5 class="card-title">
-                    # <span> {{order.number}} </span>
+                    # <span> {{order.id}} </span>
                 </h5>
                 <p class="card-text">
                     <ul style="list-style-type:none;">
@@ -97,7 +112,7 @@
             </div>
         </div>
 
-        {% if request.user.is_superuser %}
+        {% if user.is_superuser %}
         <div class="dashboard-box four">
             <h1>Admin</h1>
             <div class="card" style="margin-top: 3rem;">

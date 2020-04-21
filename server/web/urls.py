@@ -20,5 +20,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('home/', views.home, name='home'),
     path('home/info', views.info, name='info'),
+    path('home/inf', views.inf, name='inf'),
     path('home/logout', views.logout, name='logout'),
 ]

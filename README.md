@@ -1,12 +1,5 @@
 # IoT
-Dustbin IoT Database Filler
+Dustbin IoT Prototype
 
-- Data Format: json
-- File Format: plain text
-- Requeriments: python, psycopg2
-- In filler.py find 'con.autocommit' and set it equal to True
-
-The command for launch the db filler composition is: <br>
-`[ interpreter ] [ script file ] [ text file ]`
-
-Example: `$ python filler.py data.txt`
+The Dustbin-IoT prototype was a quick sketch made in a month with the *NodeRed* framework. It allowed me to understand what challenges I would face throughout the final project and be better prepared for them. <br>
+As a result, I was able to complete the real project in less than a week without problems.

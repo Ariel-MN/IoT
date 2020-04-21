@@ -3,7 +3,7 @@ Dustbin IoT System
 
 - Django Web App
 - PostgreSQL as DB
-- Credentials in docs
+- Accesss credentials in docs
 
 <br>
 

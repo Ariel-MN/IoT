@@ -8,4 +8,4 @@ Dustbin IoT Database Filler
 - Shell command for write: python filler.py data.txt
 
 The command for launch the db filler composition is:
-[ interpreter ] [ script file ] [ text file ]
+`[ interpreter ] [ script file ] [ text file ]`

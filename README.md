@@ -7,16 +7,11 @@ Each user sees his own orders and the level of filling of the dustbins to collec
 Expired orders will not be displayed automatically.
 
 
-**Technologies:**
+**Technologies and requirements:**
 
-- Django Web App
-- PostgreSQL as DB
-
-**Requirements:**
-
-- Python
-- Django
-- psycopg2
+- Python | https://www.python.org/downloads/
+- PostgreSQL as DB | https://www.postgresql.org/download/
+- Django as Framework | `$ pip install Django`
 
 <br>
 

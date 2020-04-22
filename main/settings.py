@@ -24,7 +24,7 @@ base = 'T3Rha3UyMDEyODk='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['dustbin-iot.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['dustbin-iot.herokuapp.com']
 
 
 # Application definition
@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'Dustbin-IoT',
         'USER': 'postgres',
         'PASSWORD': pwd,
-        'HOST': 'localhost'
+        'HOST': 'dustbin-iot.herokuapp.com'
     }
 }
 

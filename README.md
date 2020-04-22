@@ -1,4 +1,3 @@
-# IoT
-Dustbin IoT System
+# Dustbin IoT Templates
 
-This is the HTML template that I'll be using for this project.
+For testing and improve the HTML template.

@@ -4,7 +4,7 @@ Dustbin IoT Database Filler
 - Data Format: json
 - File Format: plain text
 - Requeriments: python, psycopg2
-- In filler.py find 'con.autocommit' and set it equal to True
+- In filler.py find _'con.autocommit = False'_ and set it equal to _'True'_
 
 The command for launch the db filler composition is: <br>
 `[ interpreter ] [ script file ] [ text file ]`

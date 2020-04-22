@@ -300,6 +300,12 @@ line-height: 1.8em;
 left: 50%;
 transform: translate(-50%, 0);
 }
+#auth {
+    color:white;
+}
+#auth a {
+    color:turquoise;
+}
 .trasparent.false {
 position: absolute;
 z-index: -1;

@@ -25,9 +25,9 @@ SECRET_KEY = 'cr&3tyyj8^22i6&8-!npe*@0@ddvmnig95+fdazx-a674sp47z'
 base = 'T3Rha3UyMDEyODk='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['dustbin-iot.herokuapp.com', '127.0.0.1']
 
 
 # Application definition

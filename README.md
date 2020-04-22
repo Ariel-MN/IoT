@@ -1,5 +1,5 @@
-# IoT
-Dustbin IoT Prototype
+# Dustbin IoT Prototype
+
 
 The Dustbin-IoT Prototype was a quick sketch with the **NodeRed** framework of the actual project. It allowed me to understand what challenges I would face throughout the realization of the final project and be better prepared for them.
 

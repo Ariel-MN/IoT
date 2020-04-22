@@ -12,6 +12,12 @@ Expired orders will not be displayed automatically.
 - Django Web App
 - PostgreSQL as DB
 
+**Requirements:**
+
+- Python
+- Django
+- psycopg2
+
 <br>
 
 ![Screenshot](docs/Screenshot_1.png)

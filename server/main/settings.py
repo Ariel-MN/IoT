@@ -22,9 +22,9 @@ SECRET_KEY = 'cr&3tyyj8^22i6&8-!npe*@0@ddvmnig95+fdazx-a674sp47z'
 base = 'T3Rha3UyMDEyODk='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['dustbin-iot.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -41,7 +41,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -81,7 +80,7 @@ DATABASES = {
         'NAME': 'Dustbin-IoT',
         'USER': 'postgres',
         'PASSWORD': pwd,
-        'HOST': 'dustbin-iot.herokuapp.com'
+        'HOST': '127.0.0.1'
     }
 }
 
@@ -121,7 +120,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [

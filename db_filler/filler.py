@@ -35,10 +35,12 @@ __version__ = '0.1'
 
 import psycopg2
 from sys import argv, exit as exits
-from base64 import decodebytes
 from json import loads
+from os import popen
 
-base = 'T3Rha3UyMDEyODk='
+
+# Get database url (Must be authenticated in Heroku)
+DATABASE_URL = popen('heroku config:get DATABASE_URL -a dustbin-iot').read()[:-1]
 con = None
 
 # Take json list from shell with command: '$ python filler.py ../data.txt'
@@ -68,9 +70,8 @@ sensors = loads(file)
 """
 
 try:
-    pwd = decodebytes(base.encode()).decode("utf-8")
-    con = psycopg2.connect(database='Dustbin-IoT', user='postgres', password=pwd)
-    con.autocommit = False  # todo: 'TRUE' FOR WRITE IN DB
+    con = psycopg2.connect(DATABASE_URL)
+    con.autocommit = True  # todo: 'TRUE' FOR WRITE IN DB
     cur = con.cursor()
 
     # Create new sensors (if id is None)
@@ -78,8 +79,8 @@ try:
     for i in sensors:
         if i['id'] is None:
             count += 1
-            cur.executemany("INSERT INTO web_sensor (capacity, battery, ip, location) "
-                            "VALUES(%(capacity)s, %(battery)s, %(ip)s, %(location)s)", sensors)
+            cur.execute("INSERT INTO web_sensor (capacity, battery, ip, location) "
+                        "VALUES(%(capacity)s, %(battery)s, %(ip)s, %(location)s)", i)
     print(f'Number of sensors added: {count}')
 
     # Update sensors (find sensor by id)

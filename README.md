@@ -1,5 +1,9 @@
 # Dustbin IoT Database Filler
 
+### A lightweight program to send the data from the dustbin sensors to the web app database.
+
+<br>
+
 **Input file with data:**
 - Data Format: json
 - File Format: plain text

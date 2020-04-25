@@ -9,7 +9,7 @@ Expired orders will not be displayed automatically.
 
 **Technologies and requirements:**
 
-- Python | https://www.python.org/downloads/
+- Python 3.8.2 | https://www.python.org/downloads/
 - PostgreSQL as DB | `$ pip install psycopg2`
 - Django as Framework | `$ pip install Django`
 

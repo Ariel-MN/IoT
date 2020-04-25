@@ -7,6 +7,6 @@ As a result, I was able to complete the real project in less than a week without
 
 **Technologies:**
 
-Python 3.8.0 | https://www.python.org/downloads/
-MongoDB as DB | https://www.mongodb.com/cloud/atlas
-NodeRed as Framework | https://nodered.org/
+Python 3.8.0 | https://www.python.org/downloads/ <br>
+MongoDB as DB | https://www.mongodb.com/cloud/atlas <br>
+NodeRed as Framework | https://nodered.org/ <br>

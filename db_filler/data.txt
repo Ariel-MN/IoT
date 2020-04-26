@@ -1,29 +1,29 @@
 [
   {
     "id": 1,
-    "capacity": 40,
-    "battery": 50,
+    "capacity": 84,
+    "battery": 78,
     "ip": "192.168.1.1",
     "location": "Central Park Avenue - NY"
   },
   {
     "id": 2,
-    "capacity": 50,
-    "battery": 60,
+    "capacity": 70,
+    "battery": 100,
     "ip": "192.168.1.2",
     "location": "Central Park Avenue - NY"
   },
   {
-    "id": null,
-    "capacity": 60,
-    "battery": 70,
+    "id": 3,
+    "capacity": 45,
+    "battery": 18,
     "ip": "192.168.1.3",
     "location": "Central Park Avenue - NY"
   },
   {
     "id": null,
-    "capacity": 70,
-    "battery": 80,
+    "capacity": 25,
+    "battery": 82,
     "ip": "192.168.1.4",
     "location": "Central Park Avenue - NY"
   }

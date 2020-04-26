@@ -38,7 +38,6 @@ from sys import argv, exit as exits
 from json import loads
 from os import popen
 
-
 # Get database url (Must be authenticated in Heroku)
 DATABASE_URL = popen('heroku config:get DATABASE_URL -a dustbin-iot').read()[:-1]
 con = None
@@ -73,20 +72,33 @@ try:
     con = psycopg2.connect(DATABASE_URL)
     con.autocommit = True  # todo: 'TRUE' FOR WRITE IN DB
     cur = con.cursor()
+    print('Writing:', con.autocommit)
 
-    # Create new sensors (if id is None)
-    count = 0
+    def exist(sensor):
+        cur.execute('select exists (select 1 from web_sensor where id = %(id)s)', sensor)
+        return cur.fetchone()[0]
+
+    count_add = 0
+    count_upd = 0
     for i in sensors:
+        # Create new sensors if id is None
         if i['id'] is None:
-            count += 1
             cur.execute("INSERT INTO web_sensor (capacity, battery, ip, location) "
                         "VALUES(%(capacity)s, %(battery)s, %(ip)s, %(location)s)", i)
-    print(f'Number of sensors added: {count}')
+            count_add += 1
+        else:
+            # Create new sensors with a specified id
+            if not exist(i):
+                cur.execute("INSERT INTO web_sensor (capacity, battery, ip, location, id) "
+                            "VALUES(%(capacity)s, %(battery)s, %(ip)s, %(location)s, %(id)s)", i)
+                count_add += 1
 
     # Update sensors (find sensor by id)
     cur.executemany("UPDATE web_sensor SET capacity=%(capacity)s, battery=%(battery)s, ip=%(ip)s, location=%(location)s"
                     " WHERE id=%(id)s", sensors)
-    print(f'Number of sensors updated: {cur.rowcount}')
+
+    print(f'Number of sensors added: {count_add}')
+    print(f'Number of sensors updated: {cur.rowcount - count_add}')
 
 except psycopg2.DatabaseError as e:
 

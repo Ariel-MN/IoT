@@ -1,4 +1,7 @@
 from django.db import models
+from django.db.models.signals import post_save
+from django.contrib.auth.models import User
+from django.dispatch import receiver
 
 
 class Sensor(models.Model):
@@ -15,9 +18,14 @@ class Order(models.Model):
 
 
 class Employee(models.Model):
-    name = models.CharField(max_length=100)
-    lastname = models.CharField(max_length=100)
-    phone = models.CharField(max_length=20)
-    adress = models.CharField(max_length=200)
-    truck = models.CharField(max_length=15)
-    employee_id = models.IntegerField()
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    phone = models.CharField(max_length=20, default='')
+    address = models.CharField(max_length=200, default='')
+    truck = models.CharField(max_length=15, default='')
+    employee_id = models.IntegerField(default=0)
+
+
+@receiver(post_save, sender=User)
+def create_profile(sender, instance, created, **kwargs):
+    if created:
+        Employee.objects.create(user=instance)

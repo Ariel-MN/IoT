@@ -4,7 +4,7 @@
 
 <br>
 
-**Input file with data:**
+**Input file:**
 - Data Format: json
 - File Format: plain text
 

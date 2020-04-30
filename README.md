@@ -17,7 +17,8 @@
 The command composition for launch the database filler is: <br>
 `[ python interpreter ] [ script file ] [ text file ]`
 
-Command example: `$ python path/filler.py path/data.txt`
+Command example: <br>
+`$ python path/filler.py path/data.txt`
 > Note that no path is need if both files are in the same directory.
 
 <br>

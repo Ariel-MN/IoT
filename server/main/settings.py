@@ -129,6 +129,29 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static', 'web'),
 ]
 
+
+# Celery config
+
+CELERY_BROKER_URL = 'redis://h:p9d2ea40f879a45f91e0326335d99de705153f6ab3b2a1e6834cea59ab41b3f65@ec2-52-17-162-121.eu-west-1.compute.amazonaws.com:9939'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+
+
+# Email config
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+EMAIL_HOST_USER = 'dustbin.iot.app@gmail.com'
+pwd_file = os.path.join(BASE_DIR, ".pwd")
+if os.path.isfile(pwd_file):
+    with open(pwd_file) as pwd:
+        EMAIL_HOST_PASSWORD = pwd.read()
+else:
+    EMAIL_HOST_PASSWORD = ''
+
+
 # Will redirect to index after a logout from admin/
 
 LOGIN_REDIRECT_URL = '/'

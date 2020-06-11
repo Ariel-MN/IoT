@@ -14,7 +14,10 @@ def index(request):
             auth.login(request, user)
             return redirect('home')
         else:
-            messages.info(request, 'Invalid credentials')
+            if not username or not password:
+                messages.info(request, 'Both the Username and Password are required.')
+            else:
+                messages.info(request, 'Invalid credentials.')
             return redirect('/')
     else:
         return render(request, 'index.html')

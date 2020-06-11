@@ -82,6 +82,18 @@ padding: 0;
 color: white;
 text-align: center;
 }
+.login-box .messages #symb {
+margin-right: 0.2em;
+color: orange;
+font-size:20px;
+}
+.login-box .messages #msg {
+color: orange;
+font-size:14px;
+}
+.login-box #space {
+margin:1.7em;
+}
 .login-box .user-box {
 position: relative;
 }

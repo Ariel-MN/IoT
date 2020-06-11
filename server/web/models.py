@@ -3,7 +3,7 @@ from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 from django.dispatch import receiver
 from .tasks import send_email
-
+import os
 
 class Sensor(models.Model):
     capacity = models.IntegerField()
@@ -37,4 +37,4 @@ def create_order(sender, instance, created, **kwargs):
     subject = 'You have been ASSIGNED to a task' if created else 'One of your tasks has been UPDATED'
     u = [(f"{emp.user.first_name} {emp.user.last_name}", emp.user.email) for emp in Employee.objects.all() if emp.employee_id == instance.employee_id]
     name, email = u[0]
-    send_email(subject, employee=name, email=[email])
+    send_email.delay(subject, name, email)

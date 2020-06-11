@@ -1,1 +1,2 @@
 web: gunicorn main.wsgi --log-file -
+worker: celery worker -A main --app=main.celery:app

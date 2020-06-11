@@ -17,5 +17,5 @@ For any questions or needs, please contact your superior.
 
 Have you received this message by mistake?
 If that's the case, please send a message to info@montesariel.com and report the issue. Thank you.""",
-              'dustbin.iot.app@gmail.com', email)
+              'dustbin.iot.app@gmail.com', [email])
     return None

@@ -6,6 +6,8 @@ from celery import Celery
 
 # set the default Django settings module for the 'celery' program.
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'main.settings')
+# for windows compatibility
+os.environ.setdefault('FORKED_BY_MULTIPROCESSING', '1')
 
 app = Celery('main')
 

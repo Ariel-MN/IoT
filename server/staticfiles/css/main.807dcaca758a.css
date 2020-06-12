@@ -3,8 +3,11 @@
 
 html {
 height: 100%;
+overflow-x: hidden;
 }
+
 body {
+position: relative;
 margin:0;
 padding:0;
 font-family: sans-serif;
@@ -24,13 +27,8 @@ color: lightgray;
 color: lightgray;
 }
 .navbar {
-position: fixed;
 display: flex;
--ms-flex-wrap: wrap;
-flex-wrap: wrap;
--ms-flex-align: center;
 align-items: center;
--ms-flex-pack: justify;
 padding: .2rem 1rem;
 scale: fixed;
 background: rgba(0, 0, 0, .4) !important;
@@ -65,12 +63,11 @@ height: 8vh !important;
 /* LOGIN PAGE */
 
 .login-box {
-position: absolute;
-top: 50%;
-left: 50%;
+position: relative;
+margin: 0 1em 0 1em;
+margin-bottom: 3em;
 width: 400px;
 padding: 40px;
-transform: translate(-50%, -50%);
 background: rgba(0,0,0,.5);
 box-sizing: border-box;
 box-shadow: 0 15px 25px rgba(0,0,0,.6);
@@ -102,7 +99,7 @@ width: 100%;
 padding: 10px 0;
 font-size: 16px;
 color: white;
-margin-bottom: 30px;
+margin-bottom: 20px;
 border: none;
 border-bottom: 1px solid white;
 outline: none;
@@ -135,7 +132,7 @@ text-decoration: none;
 text-transform: uppercase;
 overflow: hidden;
 transition: .5s;
-margin-top: 40px;
+margin-top: 20px;
 letter-spacing: 4px
 }
 .login-box a:hover {
@@ -222,53 +219,17 @@ br {
 display: block;
 margin: 30px 0;
 }
-.centered {
-position: absolute;
-top: 12%;
-left: 0%;
-overflow: visible;
-}
 .general-container {
+margin-top:1.4em;
 display: flex;
 justify-content: center;
 flex-wrap: wrap;
 }
-.dashboard-box.one {
+.dashboard-box {
 position: relative;
-margin: 14px;
-width: 350px;
-height: 650px;
-padding: 40px;
-background: rgba(0,0,0,.4);
-box-sizing: border-box;
-box-shadow: 0 15px 25px rgba(0,0,0,.6);
-border-radius: 10px;
-}
-.dashboard-box.two {
-position: relative;
-margin: 14px;
-width: 350px;
-height: 650px;
-padding: 40px;
-background: rgba(0,0,0,.4);
-box-sizing: border-box;
-box-shadow: 0 15px 25px rgba(0,0,0,.6);
-border-radius: 10px;
-}
-.dashboard-box.tree {
-position: relative;
-margin: 14px;
-width: 350px;
-height: 650px;
-padding: 40px;
-background: rgba(0,0,0,.4);
-box-sizing: border-box;
-box-shadow: 0 15px 25px rgba(0,0,0,.6);
-border-radius: 10px;
-}
-.dashboard-box.four {
-position: relative;
-margin: 14px;
+margin-right: 1em;
+margin-left: 1em;
+margin-bottom: 2.8em;
 width: 350px;
 height: 650px;
 padding: 40px;
@@ -285,7 +246,7 @@ text-align: center;
 cursor: default;
 }
 .battery.container {
-width: 240px;
+width: 200px;
 }
 .battery.container.center {
 margin: 0 auto;
@@ -293,7 +254,7 @@ margin-top: 40px;
 }
 #batteryBody {
 float: left;
-width: 200px;
+width: 165px;
 height: 75px;
 border: 10px lightgray solid;
 border-radius:.25rem;
@@ -312,18 +273,26 @@ line-height: 1.8em;
 left: 50%;
 transform: translate(-50%, 0);
 }
-#auth {
-    color:white;
+.auth {
+color:orange;
 }
-#auth a {
-    color:turquoise;
+.auth a:link, a:visited {
+color: #4c8adb;
+text-decoration: none;
+}
+.auth a:hover, a:active {
+color: turquoise;
+}
+h1.auth {
+font-size: 80px;
+color:orange;
 }
 .trasparent.false {
 position: absolute;
 z-index: -1;
 clip: rect(0px, 200px, 75px, 0px);
-height: 100%;
-width: 100%;
+height: 13%;
+width: 11em;
 background: repeating-linear-gradient(
 -55deg,
 transparent,
@@ -358,7 +327,7 @@ border-radius:.25rem;
 }
 .btn-outline{
 margin-left: 35%;
-width: 30%;
+width: 5em;
 display:inline-block;
 font-weight:400;
 text-align:center;
@@ -447,6 +416,12 @@ word-wrap: break-word;
 margin-bottom: 1rem !important;
 border-color: turquoise !important;
 }
+.card.order {
+margin-top: 6rem !important;
+}
+.card.info {
+margin-top: 3rem !important;
+}
 .card-header {
 color: turquoise !important;
 padding: .75rem 1.25rem;
@@ -458,7 +433,7 @@ cursor: default;
 -ms-flex: 1 1 auto;
 flex: 1 1 auto;
 min-height: 1px;
-padding: 1.25rem;
+color: white !important;
 }
 .card-title {
 margin-left: 80%;
@@ -471,8 +446,14 @@ margin-bottom: .1rem;
 font-weight: 500;
 line-height: 1.2;
 }
+.order-info {
+padding: 1.25rem;
+}
+.order-list {
+list-style-type:none;
+}
 .text-info {
-color: white !important;
+margin: 2em 1.1em 2em 1.1em;;
 }
 .card-text:last-child {
 margin-bottom: 0;
@@ -508,7 +489,7 @@ float: none;
 margin: 0 auto;
 }
 .gauge.big {
-font-size: 240px;
+font-size: 205px;
 }
 .gauge.small {
 font-size: 80px;

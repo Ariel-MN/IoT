@@ -3,7 +3,7 @@
 {% block content %}
 
     {% if user.is_authenticated %}
-    <div class="general-container centered">
+    <div class="general-container">
         <div class="dashboard-box one">
             <h1>Menu</h1>
             <br>
@@ -95,14 +95,14 @@
                 <input type="text" min="1" max="100000" class="form-control readonly" id="sensor-ip" placeholder="Ip Address" value="{{sensor.ip}}" readonly>
             </div>
             <br>
-            <div class="card" style="margin-top: 6rem;">
+            <div class="card order">
                 <div class="card-header">Service Order</div>
-                <div class="card-body text-info">
+                <div class="card-body order-info">
                 <h5 class="card-title">
                     # <span> {{order.id}} </span>
                 </h5>
                 <p class="card-text">
-                    <ul style="list-style-type:none;">
+                    <ul class="order-list">
                         <li>Harvest Date: {{order.date}}</li>
                         <li>Employee Id: {{order.employee_id}}</li>
                         <li>Dustbins: {{order.dustbins}}</li>
@@ -115,16 +115,15 @@
         {% if user.is_superuser %}
         <div class="dashboard-box four">
             <h1>Admin</h1>
-            <div class="card" style="margin-top: 3rem;">
+            <div class="card info">
                 <div class="card-header">Information</div>
                 <div class="card-body text-info">
-                <p class="card-text">
-                    <ul style="list-style-type:none;">
-                        <li>Access the admin panel</li>
-                        <li>for remove, add or modify:</li>
-                        <li>users, employees, orders and dustbins.</li>
-                    </ul> 
-                </p>
+                    <span class="card-text">
+                        Access the admin panel 
+                        for remove, add or modify: 
+                        users, employees, orders 
+                        and dustbins.
+                    </span>
                 </div>
             </div>
             <button type="button" class="btn btn-outline update" onclick="location.href='/admin/'">Update</button>
@@ -133,9 +132,11 @@
     </div>
 
     {% else %}
-    <div class="general-container centered">
-        <div class="dashboard-box one" style="height:fit-content">
-            <h3 id="auth">Please, <a href="/">authenticate</a> your self.</h3>
+    <div class="general-container">
+        <div class="dashboard-box" style="height:fit-content">
+            <strong><h1 class="auth">&#9888;</h1></strong>
+            <h3 class="auth">Please, authenticate yourself.</h3>
+            <h3 class="auth"><a href="/">Sing in</a></h3>
         </div>
     </div>
     {% endif %}

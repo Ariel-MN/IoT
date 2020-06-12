@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div class="login-box">
+  <div class="general-container">
+    <div class="login-box">
       <h2>Login</h2>
       <form id="loginForm" method="POST">
         {% csrf_token %}
@@ -31,4 +32,5 @@
         </a>
       </form>
     </div>
+  </div>
 {% endblock %}

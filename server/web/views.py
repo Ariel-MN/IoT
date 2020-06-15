@@ -6,6 +6,11 @@ from datetime import datetime
 
 
 def index(request):
+    if request.method == 'GET':
+        return render(request, 'index.html')
+
+
+def login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -18,9 +23,9 @@ def index(request):
                 messages.info(request, 'Both the Username and Password are required.')
             else:
                 messages.info(request, 'Invalid credentials.')
-            return redirect('/')
+            return redirect('login')
     else:
-        return render(request, 'index.html')
+        return render(request, 'login.html')
 
 
 def data(req):

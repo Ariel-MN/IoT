@@ -1,0 +1,113 @@
+@media only screen and (max-width: 390px) {
+.subtitle {
+    font-size: 2.3em;
+}
+}
+
+@media only screen and (max-width: 360px) {
+.subtitle {
+    font-size: 2.2em;
+}
+}
+
+@media only screen and (max-width: 345px) {
+.subtitle {
+    font-size: 2em;
+}
+}
+
+@media (min-width: 1200px) {
+body {
+    overflow: hidden;
+}
+}
+
+body {
+    background: linear-gradient(rgb(217, 255, 0), green);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+.video-area {
+    margin-right: 0;
+    margin-left: 0;
+    flex-wrap: unset;
+}
+
+#video-area {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.video {
+    opacity: 0.7;
+    box-shadow: 0 15px 25px rgba(0,0,0, 0.6);
+}
+
+.login {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.title {
+    position: absolute;
+    top: 30%;
+    cursor: default;
+    font-size: 10vw;
+    color: rgb(0, 0, 0, 0.8);
+    text-shadow:0 0 1em rgb(5, 201, 255), 0 0 0.2em rgba(47, 231, 255, 0.5);
+}
+
+big {
+    font-size: 150%;
+    color:rgb(0, 0, 0, 0.8);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.card {
+    border: 1px  solid rgba(213, 224, 64, 0.507);
+    background-color: rgb(128, 128, 128, 0.3);
+    opacity: 0.9;
+}
+
+.card:hover {
+    opacity: unset;
+    box-shadow: 0 15px 25px rgba(0,0,0, 0.6);
+}
+
+.card-body {
+    color: white;
+    background-color: transparent;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.arrow {
+    border: solid rgb(0, 0, 0, 0.8);
+    border-width: 0 6px 6px 0;
+    display: inline-block;
+    padding: 13px;
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.down {
+    top: 70%;
+    position: absolute; 
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    z-index: 1;
+}
+
+.arrow:hover {
+    border: solid rgb(64, 224, 208, 0.8);
+    border-width: 0 6px 6px 0;
+}

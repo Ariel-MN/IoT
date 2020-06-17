@@ -56,7 +56,7 @@
                     <span class="card-text">
                         Name: {{resp_name}}
                         <br>
-                        Phone: {{resp_phone}}
+                        Phone: <span class="phone">{{resp_phone}}</span>
                         {% if resp_phone %}
                             <a href="tel:{{resp_phone}}"><i class="fa fa-phone isEnabled mt-2"></i></a>
                         {% else %}

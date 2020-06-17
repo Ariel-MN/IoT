@@ -234,6 +234,16 @@ margin-top: 1rem;
 display: block;
 margin-top: 8px;  
 }
+.phone {
+pointer-events: none;
+text-decoration: none !important;
+color:white !important;
+}
+.phone > a {
+pointer-events: none;
+text-decoration: none !important;
+color:white !important;
+}
 .general-container {
 margin-top:1.4em;
 display: flex;

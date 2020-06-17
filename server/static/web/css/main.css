@@ -214,15 +214,48 @@ bottom: 100%;
 
 /* HOME PAGE */
 
-br {
+.mt-5 {
 display: block;
-margin: 30px 0;
+margin-top: 5.5rem;
+}
+.mt-4 {
+display: block;
+margin-top: 3rem;
+}
+.mt-3 {
+display: block;
+margin-top: 2rem;
+}
+.mt-2 {
+display: block;
+margin-top: 1rem;
+}
+.mt-1 {
+display: block;
+margin-top: 8px;  
 }
 .general-container {
 margin-top:1.4em;
 display: flex;
 justify-content: center;
 flex-wrap: wrap;
+}
+.isEnabled {
+    position: absolute;
+    right: 3%;
+    font-size:30px !important;
+    color:white !important;
+}
+.isEnabled:hover {
+    color: turquoise !important;
+}
+.isDisabled {
+    position: absolute;
+    right: 3%;
+    font-size:30px !important;
+    color: gray !important;
+    cursor: not-allowed;
+    opacity: 0.5;
 }
 .dashboard-box {
 position: relative;
@@ -347,23 +380,27 @@ color:white;
 background-color:turquoise;
 border-color:turquoise;
 }
-.form-row{
+.form-row {
 display:-ms-flexbox;
 -ms-flex-wrap:wrap;
 flex-wrap:wrap;
 margin-right:-5px;
 margin-left:-5px;
 }
-.form-row>.col,.form-row>[class*=col-]{
+.form-group {
+display:-ms-flexbox;
+-ms-flex-wrap:wrap;
+flex-wrap:wrap;
+margin-right:-5px;
+margin-left:-5px;
 padding-right:5px;
 padding-left:5px;
-padding-top: 10px;
-width: 105%;
+width: 100%;
 }
 .form-control {
 font-family: inherit;
 display: block;
-width: 92%;
+width: 90%;
 height: calc(1.5em + .75rem + 2px);
 padding: .375rem .75rem;
 font-size: 1rem;
@@ -378,6 +415,10 @@ transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 .form-control.readonly{
     cursor: default;
+}
+.selector {
+width: 96.3% !important;
+margin-left: 1.7% !important;
 }
 .form-control.selector{
     background-color: rgba(79, 129, 40, 0.4);
@@ -418,8 +459,8 @@ border-color: turquoise !important;
 .card.order {
 margin-top: 6rem !important;
 }
-.card.info {
-margin-top: 3rem !important;
+.card.resp {
+margin-top: 4rem !important; 
 }
 .card-header {
 color: turquoise !important;
@@ -514,7 +555,7 @@ z-index: 1;
 left: 0;
 top: 0;
 width: 11em;
-line-height: 14em;
+margin-top: 135px;
 font-size: 0.09em;
 color: lightgray;
 display: block;

@@ -6,7 +6,11 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    {% if user.is_authenticated and request.get_full_path == "/" %}
+    <!-- Automatically redirect authenticated users who try to enter in login page -->
+    <meta http-equiv="refresh" content="0;URL=/home/">
+    {% endif %}
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     
@@ -21,9 +25,10 @@
     <div class="row video-area">
       <button type="button" class="login btn btn-outline-dark rounded-pill text-info font-weight-bold m-2" onclick="location.href='/login'">Login</button>
       <div class="col-12" id="video-area">
-        <video class="video w-100" autoplay loop muted poster="{% static 'img/poster.jpeg' %}">
+        <video class="clip video w-100" autoplay loop muted poster="{% static 'img/poster.jpeg' %}">
           <source src="{% static 'img/clip.mp4' %}" type="video/mp4">
         </video>
+        <img class="poster video w-100" src="{% static 'img/poster.jpeg' %}">
         <div class="title h1 vert-center-text text-center ml-0 w-100">Dustbin IoT</div>
         <div class="d-none d-xl-block text-center"><a href="#info"><i class="arrow down"></i></a></div>
       </div><!--//col-->

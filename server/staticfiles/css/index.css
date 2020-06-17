@@ -20,6 +20,21 @@
 body {
     overflow: hidden;
 }
+.poster {
+    display: none;
+}
+.clip {
+    display: block;
+}
+}
+
+@media screen and (max-width: 1199px) {
+.clip {
+    display: none;
+}
+.poster {
+    display: block;
+}
 }
 
 body {

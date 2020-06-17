@@ -3,7 +3,7 @@ from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 from django.dispatch import receiver
 from .tasks import send_email
-import os
+
 
 class Sensor(models.Model):
     capacity = models.IntegerField()
@@ -24,6 +24,10 @@ class Employee(models.Model):
     address = models.CharField(max_length=200, default='')
     truck = models.CharField(max_length=15, default='')
     employee_id = models.IntegerField(default=0)
+
+
+class Responsable(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 
 @receiver(post_save, sender=User)

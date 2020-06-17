@@ -1,54 +1,71 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
     {% if user.is_authenticated %}
     <div class="general-container">
         <div class="dashboard-box one">
             <h1>Menu</h1>
-            <br>
+            
             {% if user.is_superuser %}
-            <form method="POST" action="info">
-                {% csrf_token %}
-                <div class="form-group">
-                <input type="number" min="1" max="8000" class="form-control find_order" id="service-order" name="find_order" placeholder="Service Order" onChange="Rules(this.form), this.form.submit()">
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                    <select id="employee-id" class="form-control selector" name="find_id" onChange="this.form.submit()">
-                        <option selected>Employee ID</option>
-                        {% for employee in employees %}
-                        <option>{{employee.employee_id}}</option>
-                        {% endfor %}
-                    </select>
-                    </div>
-                </div>
-                <br>
-                <div class="form-group">
-                <input type="number" min="1" max="100000" class="form-control find_dustbin" id="dustbin-number" name="find_dustbin" placeholder="Dustbin Number" onChange="Rules(this.form), this.form.submit()">
-                </div>
-                <br>
-            </form>
-            {% else %}
-            <form method="POST" action="inf">
-                {% csrf_token %}
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                    <select id="employee-id" class="form-control selector" name="find_orders" onChange="this.form.submit()">
-                        <option selected>User Orders</option>
-                        {% for order in orders %}
-                        <option>{{order.id}}# ( {{order.date}} )</option>
-                        {% endfor %}
-                    </select>
-                    </div>
-                </div>
-                <br>
-                <div class="form-group">
-                <input type="number" min="1" max="100000" class="form-control find_dustbin" id="dustbin-number" name="find_dustbin" placeholder="Dustbin Number" onChange="Rules(this.form), this.form.submit()">
-                </div>
-                <br>
-            </form>
+            {% if message %}
+            <script>
+                erMsg("form-superuser", "{{message}}");
+            </script>
             {% endif %}
+            <form method="POST" action="info" id="form-superuser">
+                {% csrf_token %}
+                <div class="form-group mt-4">
+                <input type="number" min="1" max="8000" class="form-control find_order" id="service-order" name="find_order" placeholder="Service Order" onkeypress='return event.charCode >= 48 && event.charCode <= 57' onChange="Rules(this.form)">
+                </div>
+                <div class="form-row">
+                    <div class="form-group mt-2">
+                        <select id="employee-id" class="form-control selector" name="find_id" onChange="this.form.submit()">
+                            <option selected>Employee ID</option>
+                            {% for employee in employees %}
+                            <option>{{employee.employee_id}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            {% else %}
+            {% if message %}
+            <script>
+                erMsg("form-user", "{{message}}");
+            </script>
+            {% endif %}
+            <form method="POST" action="inf" id="form-user">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group mt-4">
+                        <select id="employee-id" class="form-control selector" name="find_orders" onChange="this.form.submit()">
+                            <option selected>User Orders</option>
+                            {% for order in orders %}
+                            <option>{{order.id}}# ( {{order.date}} )</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            {% endif %}
+               <div class="form-group mt-2">
+                    <input type="number" min="1" max="100000" class="form-control find_dustbin" id="dustbin-number" name="find_dustbin" placeholder="Dustbin Number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' onChange="Rules(this.form)">
+                </div>         
+            </form>
+            <div class="card resp">
+                <div class="card-header">Responsable</div>
+                <div class="card-body text-info">
+                    <span class="card-text">
+                        Name: {{resp_name}}
+                        <br>
+                        Phone: {{resp_phone}}
+                        {% if resp_phone %}
+                            <a href="tel:{{resp_phone}}"><i class="fa fa-phone isEnabled mt-2"></i></a>
+                        {% else %}
+                            <a href=""><i class="fa fa-phone isDisabled mt-2"></i></a>
+                        {% endif %}
+                    </span>
+                </div>
+            </div>
+
             <form action="logout">
                 <button type="submit" class="btn btn-outline logout">Logout</button>
             </form>
@@ -56,8 +73,8 @@
 
         <div class="dashboard-box two">
             <h1>Sensor</h1>
-            <br>
-            <div class="gauge-container">
+            
+            <div class="gauge-container mt-4">
                 <div class="gauge p{{sensor.capacity}} big center">
                     <span>{{sensor.capacity}}%</span>
                     <p>Capacity</p>
@@ -67,8 +84,7 @@
                     </div>
                 </div>
             </div>
-            <br>
-            <div class="battery-container" style="margin-top: 4rem;">
+            <div class="battery-container mt-5">
                 <div class="battery container center">
                     <div id="batteryBody">
                         <div id="percentage">
@@ -87,15 +103,15 @@
 
         <div class="dashboard-box tree">
             <h1>Information</h1>
-            <br>
-            <div class="form-group">
+            
+            <div class="form-group mt-4">
                 <input type="text" min="1" max="100000" class="form-control readonly" id="sensor-number" placeholder="Dustbin Number" value="{{sensor.id}}" readonly>
             </div>
-            <div class="form-group" style="margin-top: 0.7rem;">
+            <div class="form-group mt-2">
                 <input type="text" min="1" max="100000" class="form-control readonly" id="sensor-ip" placeholder="Ip Address" value="{{sensor.ip}}" readonly>
             </div>
-            <br>
-            <div class="card order">
+            
+            <div class="card order mt-2">
                 <div class="card-header">Service Order</div>
                 <div class="card-body order-info">
                 <h5 class="card-title">
@@ -115,7 +131,8 @@
         {% if user.is_superuser %}
         <div class="dashboard-box four">
             <h1>Admin</h1>
-            <div class="card info">
+
+            <div class="card info mt-4">
                 <div class="card-header">Information</div>
                 <div class="card-body text-info">
                     <span class="card-text">

@@ -5,46 +5,46 @@
     <div class="general-container">
         <div class="dashboard-box one">
             <h1>Menu</h1>
-            
-            {% if user.is_superuser %}
-            {% if message %}
-            <script>
-                erMsg("form-superuser", "{{message}}");
-            </script>
-            {% endif %}
-            <form method="POST" action="info" id="form-superuser">
-                {% csrf_token %}
-                <div class="form-group mt-4">
-                <input type="number" min="1" max="8000" class="form-control find_order" id="service-order" name="find_order" placeholder="Service Order" onkeypress='return event.charCode >= 48 && event.charCode <= 57' onChange="Rules(this.form)">
-                </div>
-                <div class="form-row">
-                    <div class="form-group mt-2">
-                        <select id="employee-id" class="form-control selector" name="find_id" onChange="this.form.submit()">
-                            <option selected>Employee ID</option>
-                            {% for employee in employees %}
-                            <option>{{employee.employee_id}}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                </div>
-            {% else %}
-            {% if message %}
-            <script>
-                erMsg("form-user", "{{message}}");
-            </script>
-            {% endif %}
-            <form method="POST" action="inf" id="form-user">
-                {% csrf_token %}
-                <div class="form-row">
+
+            {% if user.is_staff %}
+                {% if message %}
+                <script>
+                    erMsg("form-staff", "{{message}}");
+                </script>
+                {% endif %}
+                <form method="POST" action="info" id="form-staff">
+                    {% csrf_token %}
                     <div class="form-group mt-4">
-                        <select id="employee-id" class="form-control selector" name="find_orders" onChange="this.form.submit()">
-                            <option selected>User Orders</option>
-                            {% for order in orders %}
-                            <option>{{order.id}}# ( {{order.date}} )</option>
-                            {% endfor %}
-                        </select>
+                    <input type="number" min="1" max="8000" class="form-control find_order" id="service-order" name="find_order" placeholder="Service Order" onkeypress='return event.charCode >= 48 && event.charCode <= 57' onChange="Rules(this.form)">
                     </div>
-                </div>
+                    <div class="form-row">
+                        <div class="form-group mt-2">
+                            <select id="employee-id" class="form-control selector" name="find_id" onChange="this.form.submit()">
+                                <option selected>Employee ID</option>
+                                {% for employee in employees %}
+                                    <option>{{employee.employee_id}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+            {% else %}
+                {% if message %}
+                <script>
+                    erMsg("form-user", "{{message}}");
+                </script>
+                {% endif %}
+                <form method="POST" action="inf" id="form-user">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="form-group mt-4">
+                            <select id="employee-id" class="form-control selector" name="find_orders" onChange="this.form.submit()">
+                                <option selected>User Orders</option>
+                                {% for order in orders %}
+                                    <option>{{order.id}}# ( {{order.date}} )</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
             {% endif %}
                <div class="form-group mt-2">
                     <input type="number" min="1" max="100000" class="form-control find_dustbin" id="dustbin-number" name="find_dustbin" placeholder="Dustbin Number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' onChange="Rules(this.form)">
@@ -128,34 +128,34 @@
             </div>
         </div>
 
-        {% if user.is_superuser %}
-        <div class="dashboard-box four">
-            <h1>Admin</h1>
+        {% if user.is_staff %}
+            <div class="dashboard-box four">
+                <h1>Admin</h1>
 
-            <div class="card info mt-4">
-                <div class="card-header">Information</div>
-                <div class="card-body text-info">
-                    <span class="card-text">
-                        Access the admin panel 
-                        for remove, add or modify: 
-                        users, employees, orders 
-                        and dustbins.
-                    </span>
+                <div class="card info mt-4">
+                    <div class="card-header">Information</div>
+                    <div class="card-body text-info">
+                        <span class="card-text">
+                            Access the admin panel 
+                            for remove, add or modify: 
+                            users, employees, orders 
+                            and dustbins.
+                        </span>
+                    </div>
                 </div>
+                <button type="button" class="btn btn-outline update" onclick="location.href='/admin/'">Update</button>
             </div>
-            <button type="button" class="btn btn-outline update" onclick="location.href='/admin/'">Update</button>
-        </div>
         {% endif %}
     </div>
 
     {% else %}
-    <div class="general-container">
-        <div class="dashboard-box" style="height:fit-content">
-            <strong><h1 class="auth">&#9888;</h1></strong>
-            <h3 class="auth">Please, authenticate yourself.</h3>
-            <h3 class="auth"><a href="/login">Login</a></h3>
+        <div class="general-container">
+            <div class="dashboard-box" style="height:fit-content">
+                <strong><h1 class="auth">&#9888;</h1></strong>
+                <h3 class="auth">Please, authenticate yourself.</h3>
+                <h3 class="auth"><a href="/login">Login</a></h3>
+            </div>
         </div>
-    </div>
     {% endif %}
 
 {% endblock %}

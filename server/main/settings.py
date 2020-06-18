@@ -16,16 +16,28 @@ import dotenv
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# load environment variables from .env
+# load environment variables from .env and .pwd
 dotenv_file = os.path.join(BASE_DIR, ".env")
 if os.path.isfile(dotenv_file):
     dotenv.load_dotenv(dotenv_file)
+
+pwd_file = os.path.join(BASE_DIR, ".pwd")
+if os.path.isfile(pwd_file):
+    with open(pwd_file) as pwd:
+        line = pwd.readlines()
+        KEY = line[0]
+        EMAIL_PWD = line[1]
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'cr&3tyyj8^22i6&8-!npe*@0@ddvmnig95+fdazx-a674sp47z'
+
+if os.path.isfile(pwd_file):
+    SECRET_KEY = KEY
+else:
+    SECRET_KEY = os.environ.get("SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -144,12 +156,11 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 EMAIL_HOST_USER = 'dustbin.iot.app@gmail.com'
-pwd_file = os.path.join(BASE_DIR, ".pwd")
+
 if os.path.isfile(pwd_file):
-    with open(pwd_file) as pwd:
-        EMAIL_HOST_PASSWORD = pwd.read()
+    EMAIL_HOST_PASSWORD = EMAIL_PWD
 else:
-    EMAIL_HOST_PASSWORD = ''
+    EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 
 
 # Will redirect to index after a logout from admin/

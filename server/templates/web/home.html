@@ -54,11 +54,11 @@
                 <div class="card-header">Responsable</div>
                 <div class="card-body text-info">
                     <span class="card-text">
-                        Name: {{resp_name}}
+                        {{resp_name}}
                         <br>
-                        Phone: <span class="phone">{{resp_phone}}</span>
-                        {% if resp_phone %}
-                            <a href="tel:{{resp_phone}}"><i class="fa fa-phone isEnabled mt-2"></i></a>
+                        <span class="phone">{{view_phone}}</span>
+                        {% if link_phone %}
+                            <a href="tel:{{link_phone}}"><i class="fa fa-phone isEnabled mt-2"></i></a>
                         {% else %}
                             <a href=""><i class="fa fa-phone isDisabled mt-2"></i></a>
                         {% endif %}

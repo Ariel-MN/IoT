@@ -235,12 +235,7 @@ display: block;
 margin-top: 8px;  
 }
 .phone {
-pointer-events: none;
-text-decoration: none !important;
-color:white !important;
-}
-.phone > a {
-pointer-events: none;
+cursor:text !important;
 text-decoration: none !important;
 color:white !important;
 }

@@ -30,13 +30,16 @@ def login(request):
 
 def resposable():
     resp_name = ""
-    resp_phone = ""
+    view_phone = ""
+    link_phone = ""
 
     resp = Responsable.objects.first()
     if resp:
         resp_name = resp.user.get_full_name()
-        resp_phone = Employee.objects.get(user=resp.user).phone
-    return resp_name, resp_phone
+        view_phone = Employee.objects.get(user=resp.user).phone
+        link_phone = ''.join(c for c in view_phone if c not in '() -')
+
+    return resp_name, view_phone, link_phone
 
 
 def data(req):
@@ -58,14 +61,14 @@ def data(req):
 def home(request):
     if request.method == 'GET':
         employees, orders = data(request)
-        resp_name, resp_phone = resposable()
-        return render(request, 'home.html', {'employees': employees, 'orders': orders, 'resp_name': resp_name, 'resp_phone': resp_phone})
+        resp_name, view_phone, link_phone = resposable()
+        return render(request, 'home.html', {'employees': employees, 'orders': orders, 'resp_name': resp_name, 'view_phone': view_phone, 'link_phone': link_phone})
 
 
 def info(request):
     employees = Employee.objects.all().exclude(employee_id=0)
     yesterday = datetime.now() - timedelta(days=1)
-    resp_name, resp_phone = resposable()
+    resp_name, view_phone, link_phone = resposable()
 
     if request.method == 'POST':
         find_order = request.POST['find_order']
@@ -76,19 +79,19 @@ def info(request):
                 order = Order.objects.get(id=int(find_order))
                 order.date = order.date.strftime('%d/%m/%Y')
                 if order:
-                    return render(request, 'home.html', {'order': order, 'employees': employees, 'resp_name': resp_name, 'resp_phone': resp_phone})
+                    return render(request, 'home.html', {'order': order, 'employees': employees, 'resp_name': resp_name, 'view_phone': view_phone, 'link_phone': link_phone})
                 else:
-                    return render(request, 'home.html', {'employees': employees, 'resp_name': resp_name, 'resp_phone': resp_phone})
+                    return render(request, 'home.html', {'employees': employees, 'resp_name': resp_name, 'view_phone': view_phone, 'link_phone': link_phone})
             except Order.DoesNotExist:
-                return render(request, 'home.html', {'employees': employees, 'resp_name': resp_name, 'resp_phone': resp_phone, 'message': 'find_order'})
+                return render(request, 'home.html', {'employees': employees, 'resp_name': resp_name, 'view_phone': view_phone, 'link_phone': link_phone, 'message': 'find_order'})
         elif find_id != 'Employee ID':
             try:
                 order = Order.objects.all().filter(employee_id=int(find_id)).order_by('date').exclude(date__lte=yesterday.date())
                 if order:
                     order[0].date = order[0].date.strftime('%d/%m/%Y')
-                    return render(request, 'home.html', {'order': order[0], 'employees': employees, 'resp_name': resp_name, 'resp_phone': resp_phone})
+                    return render(request, 'home.html', {'order': order[0], 'employees': employees, 'resp_name': resp_name, 'view_phone': view_phone, 'link_phone': link_phone})
                 else:
-                    return render(request, 'home.html', {'employees': employees, 'resp_name': resp_name, 'resp_phone': resp_phone})
+                    return render(request, 'home.html', {'employees': employees, 'resp_name': resp_name, 'view_phone': view_phone, 'link_phone': link_phone})
             except Order.DoesNotExist:
                 raise Http404("Item does not exist")
         elif find_dustbin != '':
@@ -101,17 +104,17 @@ def info(request):
                     battery_level = 'full'
                 else:
                     battery_level = 'medium'
-                return render(request, 'home.html', {'sensor': sensor, 'level': battery_level, 'employees': employees, 'resp_name': resp_name, 'resp_phone': resp_phone})
+                return render(request, 'home.html', {'sensor': sensor, 'level': battery_level, 'employees': employees, 'resp_name': resp_name, 'view_phone': view_phone, 'link_phone': link_phone})
             except Sensor.DoesNotExist:
-                return render(request, 'home.html', {'employees': employees, 'resp_name': resp_name, 'resp_phone': resp_phone, 'message': 'find_dustbin'})
+                return render(request, 'home.html', {'employees': employees, 'resp_name': resp_name, 'view_phone': view_phone, 'link_phone': link_phone, 'message': 'find_dustbin'})
                 # raise Http404("Item does not exist")
     else:
-        return redirect('home', {'employees': employees, 'resp_name': resp_name, 'resp_phone': resp_phone})
+        return redirect('home', {'employees': employees, 'resp_name': resp_name, 'view_phone': view_phone, 'link_phone': link_phone})
 
 
 def inf(request):
     _, orders = data(request)
-    resp_name, resp_phone = resposable()
+    resp_name, view_phone, link_phone = resposable()
     if request.method == 'POST':
         find_dustbin = request.POST['find_dustbin']
         find_orders = request.POST['find_orders']
@@ -125,22 +128,22 @@ def inf(request):
                     battery_level = 'full'
                 else:
                     battery_level = 'medium'
-                return render(request, 'home.html', {'sensor': sensor, 'level': battery_level, 'orders': orders, 'resp_name': resp_name, 'resp_phone': resp_phone})
+                return render(request, 'home.html', {'sensor': sensor, 'level': battery_level, 'orders': orders, 'resp_name': resp_name, 'view_phone': view_phone, 'link_phone': link_phone})
             except Sensor.DoesNotExist:
-                return render(request, 'home.html', {'orders': orders, 'resp_name': resp_name, 'resp_phone': resp_phone, 'message': 'find_dustbin'})
+                return render(request, 'home.html', {'orders': orders, 'resp_name': resp_name, 'view_phone': view_phone, 'link_phone': link_phone, 'message': 'find_dustbin'})
         elif find_orders != 'User Orders':
             try:
                 id, _ = find_orders.split('#')
                 order = Order.objects.get(id=id)
                 order.date = order.date.strftime('%d/%m/%Y')
                 if order:
-                    return render(request, 'home.html', {'order': order, 'orders': orders, 'resp_name': resp_name, 'resp_phone': resp_phone})
+                    return render(request, 'home.html', {'order': order, 'orders': orders, 'resp_name': resp_name, 'view_phone': view_phone, 'link_phone': link_phone})
                 else:
-                    return render(request, 'home.html', {'orders': orders, 'resp_name': resp_name, 'resp_phone': resp_phone})
+                    return render(request, 'home.html', {'orders': orders, 'resp_name': resp_name, 'view_phone': view_phone, 'link_phone': link_phone})
             except Order.DoesNotExist:
                 raise Http404("Item does not exist")
     else:
-        return redirect('home', {'orders': orders, 'resp_name': resp_name, 'resp_phone': resp_phone})
+        return redirect('home', {'orders': orders, 'resp_name': resp_name, 'view_phone': view_phone, 'link_phone': link_phone})
 
 
 def logout(request):

@@ -21,3 +21,7 @@ Expired orders will not be displayed automatically.
 <br>
 
 ![Screenshot](docs/Screenshot_2.png)
+
+<br>
+
+![Screenshot](docs/Screenshot_3.png)

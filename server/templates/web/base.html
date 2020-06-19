@@ -6,9 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
-    {% if user.is_authenticated and request.get_full_path == "/" %}
-    <!-- Automatically redirect authenticated users who try to enter in login page -->
-    <meta http-equiv="refresh" content="0;URL=/home/">
+    {% if user.is_authenticated %}
+      {% if request.get_full_path == "/" or request.get_full_path == "/login" %}
+        <!-- Automatically redirect authenticated users from index or login page to home -->
+        <meta http-equiv="refresh" content="0;URL=/home/">
+      {% endif %}
     {% endif %}
     <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">

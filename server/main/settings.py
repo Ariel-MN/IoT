@@ -41,7 +41,10 @@ else:
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+if os.path.isfile(pwd_file):
+    DEBUG = False
+else:
+    DEBUG = os.environ.get("DEBUG")
 
 ALLOWED_HOSTS = ['dustbin-iot.herokuapp.com', '127.0.0.1']
 

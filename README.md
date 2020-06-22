@@ -1,4 +1,10 @@
-# Dustbin IoT System
+[![Dustbin IoT](docs/img/DustbinIoT.png)](https://github.com/Ariel-MN/IoT)
+
+<hr>
+
+[![Doc pdf](docs/img/btn1.svg)](https://montesariel.com/download/en/dustbin-iot-documentation.pdf)
+[![Project study](docs/img/btn2.svg)](https://montesariel.com/portfolio/project-1)
+[![Web app Heroku](docs/img/btn3.svg)](https://dustbin-iot.herokuapp.com/)
 
 ### Intelligent system for managing the refuse collection of a Smart City.
 
@@ -12,16 +18,16 @@ Expired orders will not be displayed automatically.
 - Python 3.8.3 | https://www.python.org/downloads/
 - PostgreSQL as DB | `$ pip install psycopg2`
 - Django as Framework | `$ pip install Django`
-- Read the full list in the requirements.txt file.
+- Read the full list in the [requirements.txt](https://github.com/Ariel-MN/IoT/blob/master/server/requirements.txt) file.
 
 <br>
 
-![Screenshot](docs/Screenshot_1.png)
+![Screenshot](docs/img/Screenshot_1.png)
 
 <br>
 
-![Screenshot](docs/Screenshot_2.png)
+![Screenshot](docs/img/Screenshot_2.png)
 
 <br>
 
-![Screenshot](docs/Screenshot_3.png)
+![Screenshot](docs/img/Screenshot_3.png)

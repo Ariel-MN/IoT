@@ -76,7 +76,7 @@ body {
     text-shadow:0 0 1em rgb(5, 201, 255), 0 0 0.2em rgba(47, 231, 255, 0.5);
 }
 
-big {
+.subtitle::first-letter {
     font-size: 150%;
     color:rgb(0, 0, 0, 0.8);
     font-family: Georgia, 'Times New Roman', Times, serif;

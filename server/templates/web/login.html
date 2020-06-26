@@ -7,7 +7,7 @@
       <form id="loginForm" method="POST">
         {% csrf_token %}
         <div class="user-box">
-          <input type="text" name="username" required>
+          <input type="text" name="username" autocomplete="off" autofocus required>
           <label>Username</label>
         </div>  
         <div class="user-box">

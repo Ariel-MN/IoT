@@ -47,8 +47,8 @@
                     </div>
             {% endif %}
                <div class="form-group mt-2">
-                    <input type="number" min="1" max="100000" class="form-control find_dustbin" id="dustbin-number" name="find_dustbin" placeholder="Dustbin Number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' onChange="Rules(this.form)">
-                </div>         
+                    <input type="number" min="1" max="10000" class="form-control find_dustbin" id="dustbin-number" name="find_dustbin" placeholder="Dustbin Number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' onChange="Rules(this.form)">
+                </div>
             </form>
             <div class="card resp">
                 <div class="card-header">Responsable</div>
@@ -105,10 +105,10 @@
             <h1>Information</h1>
             
             <div class="form-group mt-4">
-                <input type="text" min="1" max="100000" class="form-control readonly" id="sensor-number" placeholder="Dustbin Number" value="{{sensor.id}}" readonly>
+                <input type="text" class="form-control readonly" id="sensor-number" placeholder="Dustbin Number" value="{{sensor.id}}" readonly>
             </div>
             <div class="form-group mt-2">
-                <input type="text" min="1" max="100000" class="form-control readonly" id="sensor-ip" placeholder="Ip Address" value="{{sensor.ip}}" readonly>
+                <input type="text" class="form-control readonly" id="sensor-ip" placeholder="Ip Address" value="{{sensor.ip}}" readonly>
             </div>
             
             <div class="card order mt-2">

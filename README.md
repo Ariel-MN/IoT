@@ -2,9 +2,9 @@
 
 <hr>
 
-[![Doc pdf](docs/img/btn1.svg)](https://montesariel.com/download/en/dustbin-iot-documentation.pdf)
-[![Project study](docs/img/btn2.svg)](https://montesariel.com/portfolio/project-1)
-[![Web app Heroku](docs/img/btn3.svg)](https://dustbin-iot.herokuapp.com/)
+[![Doc pdf](https://github.com/Ariel-MN/Ariel-MN/blob/master/Assets/btn1.svg)](https://montesariel.com/download/en/dustbin-iot-documentation.pdf)
+[![Project study](https://github.com/Ariel-MN/Ariel-MN/blob/master/Assets/btn2.svg)](https://montesariel.com/portfolio/project-1)
+[![Web app Heroku](https://github.com/Ariel-MN/Ariel-MN/blob/master/Assets/btn3.svg)](https://dustbin-iot.herokuapp.com/)
 
 ### Intelligent system for managing the refuse collection of a Smart City.
 

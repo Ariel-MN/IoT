@@ -1,4 +1,8 @@
-[![Dustbin IoT](docs/img/DustbinIoT.png)](https://github.com/Ariel-MN/IoT)
+<p align="center">
+  <a href="https://github.com/Ariel-MN/IoT">
+    <img src="docs/img/DustbinIoT.png">
+  </a>
+</p>
 
 <hr>
 

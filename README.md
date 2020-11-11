@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/Ariel-MN/IoT">
-    <img src="docs/img/DustbinIoT.png">
+    <img src="docs/img/DustbinIoT.png" alt="Dustbin IoT Logo" />
   </a>
 </p>
 

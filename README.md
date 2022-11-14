@@ -8,10 +8,6 @@
 
 <span align="center">
 
-  [![Created Repository](https://badges.pufler.dev/created/Ariel-MN/IoT)](https://github.com/Ariel-MN/IoT/)
-  [![Updated Repository](https://badges.pufler.dev/updated/Ariel-MN/IoT)](https://github.com/Ariel-MN/IoT/)
-  [![Visits Repository](https://badges.pufler.dev/visits/Ariel-MN/IoT)](https://github.com/Ariel-MN/IoT/)
-  <br>
   [![Document](https://img.shields.io/badge/docs-pdf-9cf)](https://montesariel.com/download/en/dustbin-iot-documentation.pdf)
   [![Project Study](https://img.shields.io/badge/project-study-informational)](https://montesariel.com/portfolio/project-1)
   [![Web App Heroku](https://img.shields.io/badge/web%20app-heroku-blueviolet)](https://dustbin-iot.herokuapp.com/)
